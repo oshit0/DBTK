@@ -1,0 +1,25 @@
+TODO
+
+Legend:
+* Bugs
++ Feature to add
+
+Navbar {
+    *Icon Alignment.
+    *Try to put it into a separate file and make 
+        a js script to update current page.
+    +Modal Login Input Validation.
+    +Transparency and be on top of carousel.
+    +Add redirection to other pages.
+    +Add Modal for the cart.
+}
+
+Footer 
+    +Add this.
+}
+
+Carousell {
+    *Pre-load image.
+    *Remove white gap between image.
+    +Add timer to auto slide.
+}
