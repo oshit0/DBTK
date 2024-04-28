@@ -1,0 +1,38 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 29 Apr 2024, 7:02:11 am
+    Author     : Mark
+*/
+.offcanvas-body {
+  padding: 20px;
+}
+
+.sticky-checkout {
+  display: flex;
+  border-top: 1px solid #dee2e6;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+}
+
+.cart-item:first-child {
+  border-top: none; /* Remove border for the first cart item */
+}
+
+.cart-item img {
+  width: 100%;
+  height: 100%;
+  margin-right: 15px;
+}
+
+.quantity-input {
+  width: 70px;
+}
