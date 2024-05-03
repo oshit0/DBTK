@@ -3,6 +3,8 @@
     Created on : 7 Apr 2024, 11:26:26 pm
     Author     : Elthan
 --%>
+
+<!-- Cart -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
         <div class="offcanvas-header">
                 <h5 id="cartOffcanvasLabel">Shopping Cart</h5>

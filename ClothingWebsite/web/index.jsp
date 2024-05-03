@@ -10,6 +10,7 @@
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Don't Blame The Kids</title>
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
                 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.7.1.min.js"></script>
                 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
@@ -18,22 +19,22 @@
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/cart.css">
                 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/footer.css">
                 <link
-                        rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-                        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-                        crossorigin="anonymous"
-                        referrerpolicy="no-referrer"
-                        />
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+                  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+                  crossorigin="anonymous"
+                  referrerpolicy="no-referrer"
+                  />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
                 <link rel="preconnect" href="https://rsms.me/">
                 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-                <title>JSP Page</title>
         </head>
         <body>
                 <%@include file="home-navbar.jsp" %>
                 <%@include file="cart.jsp" %>
                 <%@include file="login.jsp" %>
 
+                <!-- Carousell -->
                 <div id="carouselExampleIndicators" class="carousel slide">
                         <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -61,6 +62,7 @@
                         </button>
                 </div>
 
+                <!-- Model Picture -->
                 <div class="container-fluid">
                         <div class="row">
                                 <div class="col-md-6 col-sm-0 p-0 model-left img-fluid"  style="background-image: url('img/homepage/maloi_left.jpg');">
@@ -71,6 +73,7 @@
                         </div>
                 </div>
 
+                <!-- Brand Video -->
                 <div class="container-fluid">
                         <div class="row">
                                 <div class="col-12 p-0">
@@ -86,6 +89,7 @@
 
                 <div></div>
 
+                <!-- Gallery of Collaborations -->
                 <div class="container-fluid text-center px-4 py-4">
                         <div class="row justify-content-center ">
                                 <div class="col-lg-4 col-md-4">

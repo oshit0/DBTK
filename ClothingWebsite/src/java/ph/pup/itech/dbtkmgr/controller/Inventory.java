@@ -32,7 +32,13 @@ public class Inventory extends HttpServlet {
                 throws ServletException, IOException {
                 String action = request.getServletPath();
                 switch (action) {
-                        case "/inventory":
+                        case "/inventory/create/form":
+                                createFormProduct(request, response);
+                                break;
+                        case "/inventory/create":
+                                createProduct(request, response);
+                                break;
+                        default:
                                 viewInventory(request, response);
                                 break;
                 }
@@ -54,8 +60,33 @@ public class Inventory extends HttpServlet {
 
         private void viewInventory(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/inventory.jsp");
                 rd.forward(request, response);
+
+        }
+
+        private void createFormProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/product-create.jsp");
+                rd.forward(request, response);
+
+        }
+
+        private void createProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+                String itemId = request.getParameter("itemId");
+                String itemName = request.getParameter("itemName");
+                String itemDescription = request.getParameter("itemDescription");
+                String itemPrice = request.getParameter("itemPrice");
+                String itemStocks = request.getParameter("itemStocks");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/inventory.jsp");
+                rd.forward(request, response);
+                System.out.println("Here's what was received:");
+                System.out.println("Item ID:\t" + itemId);
+                System.out.println("Item Name:\t" + itemName);
+                System.out.println("Item Description:\t" + itemDescription);
+                System.out.println("Item Price:\t" + itemPrice);
+                System.out.println("Item Stocks:\t" + itemStocks);
 
         }
 

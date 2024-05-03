@@ -20,58 +20,65 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 
 body {
   font-family: 'Inter';
-  padding-top: 74px;
+  padding-top: 115px;
 }
 
 .signup{
-        width: 360px;
-        height: 100%;
-        margin: auto;
-        background-color: whitesmoke;
-        border-radius: 3px;
-
+  width: 40%;
+  height: 100%;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  align-content: center;
 }
 
-.signup h1{
-        text-align: center;
-        padding-top: 15px;
+h1{
+  text-align: center;
+  padding-top: 15px;
 
 }
 
 .signup form{
-        width: 300px;
-        margin-left: 20px;
+  width: 400px;
+  margin: auto;
+  align-content: center;
 
 }
 
-.signup form label{
-        display: flex;
-        margin-top: 20px;
-        font-size: 18px;
-
+form label{
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
 }
 
-.signup form input{
-        width: 100%;
-        padding: 5px;
-        border: none;
-        border: 1px solid gray;
-        border-radius: 6px;
-        outline: none;
+form input{
+  width: 100%;
+  padding: 5px;
+  border: none;
+  border: 1px solid gray;
+  border-radius: 6px;
+  outline: none;
 }
 
 
 .signup .btn {
-        width: 320px;
-        height: 35px;
-        margin-top: 30px;
-        border: none;
-        background-color: black;
-        color: white;
-        font-size: 15px;
+  width: 400px;
+  height: 35px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  align-content: center;
 }
 
 .signup span{
-        color: red;
-        font-size: 15px;
+  color: red;
+  font-size: 15px;
 }
+
+

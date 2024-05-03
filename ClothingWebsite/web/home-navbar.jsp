@@ -4,6 +4,7 @@
     Author     : Mark
 --%>
 
+<!-- Home Navbar -->
 <nav id="navbarHome" class="navbar fixed-top navbar-expand-lg">
         <div class="container-fluid px-5">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
