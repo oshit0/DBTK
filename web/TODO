@@ -1,0 +1,37 @@
+TODO
+
+Legend:
+* Bugs
++ Feature to add
+/ Done
+- Scrapped
+
+Navbar {
+    +Add redirection to other pages. /
+    +Size changing when scrolled. -
+    +turn to offcanvas when in mobile mode.
+}
+
+Footer 
+    +Add this. /
+}
+
+Carousell {
+    +Add timer to auto slide. -
+}
+
+Flexbox {
+  *Haha Fix that abomination. /
+}
+
+Modal {
+  +Add Redirection to another modal which
+covers the signup. -
++Add Login Input Validation./
+}
+
+Signup {
+  Design from uniqlo /
+  Design from Versace /
+  Input Validation Fixes /
+} 
