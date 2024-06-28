@@ -1,0 +1,21 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 29 Apr 2024, 6:17:54 am
+    Author     : Mark
+*/
+
+.navbar-logosize{
+  font-size: 2em;
+}
+
+.bold-text {
+  font-weight: bold; /* Specify bold font weight */
+}
+
+.nav-icons {
+  font-size: 20px;
+  color: #332D2D
+}
