@@ -9,6 +9,7 @@ public class InventoryAddClass {
     public boolean addInventory(
         String itemName,
         String itemDesc,
+        String itemSize,
         int itemPrice,
         int itemStocks
     ) throws ClassNotFoundException{
@@ -21,15 +22,17 @@ public class InventoryAddClass {
             String query = "INSERT INTO inventory_table ( "
             + "itemName, "
             + "itemDesc, "
+            + "itemSize, "
             + "itemPrice, "
             + "itemStocks) "
-            + "VALUES (?, ?, ?, ?) ";
+            + "VALUES (?, ?, ?, ?, ?) ";
             conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1, itemName);
             ps.setString(2, itemDesc);
-            ps.setInt(3, itemPrice);
-            ps.setInt(4, itemStocks);
+            ps.setString(3, itemSize);
+            ps.setInt(4, itemPrice);
+            ps.setInt(5, itemStocks);
 
             int rowsAffected = ps.executeUpdate();
             if(rowsAffected != 0 ){

@@ -7,12 +7,12 @@ import java.sql.SQLException;
 public class ConnectionPool{
 
     static Connection conn;
-    
+
     public static Connection getConnection() throws SQLException, ClassNotFoundException{
         try{
             String driver = "com.mysql.cj.jdbc.Driver";
             Class.forName(driver);
-            String url = "jdbc:mysql://localhost:3306/inventory?serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/dbtk_db?serverTimezone=UTC";
             conn = (Connection) DriverManager.getConnection(url, "root", "Mark@1366");
         }catch(SQLException e){
             System.out.println("SQLException" + e);

@@ -17,19 +17,23 @@ public class InventorySearchClass {
         
         try{
             String query = "SELECT "
+            + "id, "
             + "itemName, "
             + "itemDesc, "
+            + "itemSize, "
             + "itemPrice, "
             + "itemStocks "
-            + "FROM inventory_table;";
+            + "FROM inventory_table";
             conn = ConnectionPool.getConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
 
             while(rs.next()){
                 InventoryModel item = new InventoryModel();
+                item.setItemId(rs.getInt("id"));
                 item.setItemName(rs.getString("itemName"));
                 item.setItemDesc(rs.getString("itemDesc"));
+                item.setItemSize(rs.getString("itemSize"));
                 item.setItemPrice(rs.getInt("itemPrice"));
                 item.setItemStocks(rs.getInt("itemStocks"));
                 allItems.add(item);

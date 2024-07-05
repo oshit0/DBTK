@@ -4,6 +4,7 @@ public class InventoryModel {
     private int itemId;
     private String itemName;
     private String itemDesc;
+    private String itemSize;
     private int itemPrice;
     private int itemStocks;
 
@@ -11,15 +12,17 @@ public class InventoryModel {
         // Set as empty.
     }
 
-    public InventoryModel(String itemId, String itemName, int itemPrice, int itemStocks) {
+    public InventoryModel(String itemId, String itemName, String itemSize, int itemPrice, int itemStocks) {
         this.itemName = itemName;
+        this.itemName = itemSize;
         this.itemPrice = itemPrice;
         this.itemStocks = itemStocks;
     }
 
-    public InventoryModel(String itemId, String itemName, String itemDesc, int itemPrice, int itemStocks) {
+    public InventoryModel(String itemId, String itemName, String itemDesc,  String itemSize, int itemPrice, int itemStocks) {
         this.itemName = itemName;
         this.itemDesc = itemDesc;
+        this.itemDesc = itemSize;
         this.itemPrice = itemPrice;
         this.itemStocks = itemStocks;
     }
@@ -37,6 +40,10 @@ public class InventoryModel {
         return itemDesc;
     }
 
+    public String getItemSize() {
+        return itemSize;
+    }
+
     public int getItemPrice() {
         return itemPrice;
     }
@@ -46,12 +53,20 @@ public class InventoryModel {
     }
 
     // Setters
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
     public void setItemDesc(String itemDesc) {
         this.itemDesc = itemDesc;
+    }
+
+    public void setItemSize(String itemSize) {
+        this.itemSize = itemSize;
     }
 
     public void setItemPrice(int itemPrice) {
