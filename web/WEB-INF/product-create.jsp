@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : 05 3, 23, 5:38:52 PM
     Author     : WANHEDA
@@ -35,7 +35,7 @@
                                         <div class="card-body">
                                                 <div class="form-row">
                                                         <div class="form-group col-md-12 text-left mb-3">
-                                                                <form method="POST" action="${pageContext.request.contextPath}/inventory/create">
+                                                                <form method="post" action="${pageContext.request.contextPath}/inventory/create" id="form">
                                                                         <div class="mb-1 row">
                                                                                 <label for="itemName" class="col-sm-3 col-form-label">Item Name</label>
                                                                                 <div class="col-sm-9">
@@ -46,6 +46,12 @@
                                                                                 <label for="itemDescription" class="col-sm-3 col-form-label">Item Description</label>
                                                                                 <div class="col-sm-9">
                                                                                         <input type="text" class="form-control form-control-sm" id="itemDescription" name="itemDescription">
+                                                                                </div>
+                                                                        </div>
+                                                                        <div class="mb-1 row">
+                                                                                <label for="itemSize" class="col-sm-3 col-form-label">Item Size</label>
+                                                                                <div class="col-sm-9">
+                                                                                        <input type="text" class="form-control form-control-sm" id="itemSize" name="itemSize">
                                                                                 </div>
                                                                         </div>
                                                                         <div class="mb-1 row">
@@ -69,4 +75,5 @@
                         </main>
                 </div>
         </body>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/reset-form.js"></script>
 </html>

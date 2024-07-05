@@ -5,6 +5,10 @@
                 <servlet-class>ph.pup.itech.dbtkmgr.controllers.InventoryController</servlet-class>
         </servlet>
         <servlet>
+                <servlet-name>UsersData</servlet-name>
+                <servlet-class>ph.pup.itech.dbtkmgr.controllers.UserDataController</servlet-class>
+        </servlet>
+        <servlet>
                 <servlet-name>UnprotectedPages</servlet-name>
                 <servlet-class>ph.pup.itech.dbtkmgr.controllers.UnprotectedPages</servlet-class>
         </servlet>
@@ -26,7 +30,43 @@
         </servlet-mapping>
         <servlet-mapping>
                 <servlet-name>Inventory</servlet-name>
+                <url-pattern>/inventory/edit/form</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>Inventory</servlet-name>
                 <url-pattern>/inventory/delete</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>Inventory</servlet-name>
+                <url-pattern>/inventory/removed</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/users_data</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/create/form</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/create</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/edit/form</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/edit</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/removed</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+                <servlet-name>UsersData</servlet-name>
+                <url-pattern>/user/delete</url-pattern>
         </servlet-mapping>
         <servlet-mapping>
                 <servlet-name>UnprotectedPages</servlet-name>

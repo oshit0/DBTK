@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : navbar
     Created on : 7 Apr 2024, 2:09:03 am
     Author     : Mark
@@ -17,6 +17,6 @@
                         <ul class="navbar-nav d-flex justify-content-between align-content-center ms-auto ms-md-auto">
                                 <li class="py-2 px-1 px-sm-1"><a class="" href="#"><i class="nav-icons fa-solid fa-user"></i></a> Admin</li>
                         </ul>
-                </div>        
+                </div>
         </div>
 </nav>
