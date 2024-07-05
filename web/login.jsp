@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : login
     Created on : 5 Apr 2024, 3:20:06 am
     Author     : Mark
@@ -11,7 +11,7 @@
                         <button type="button" class="btn-close p-4 " data-bs-dismiss="modal" aria-label="Close"></button>
                         <div class="modal-body p-4 py-4 px-md-5">
                                 <h3 class="text-center mb-3 pb-40" id="exampleModalLabel">Login</h3>
-                                <form action="${pageContext.request.contextPath}/inventory" class="login-form">
+                                <form action="${pageContext.request.contextPath}/users_data" class="login-form">
                                         <div class="form-group mb-2">
                                                 <label for="username" class="col-form-label">Username</label>
                                                 <input type="text" class="form-control" id="usernameLogin">

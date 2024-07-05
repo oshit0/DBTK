@@ -16,7 +16,7 @@
 
                 <ul class="nav col-md-4 justify-content-center list-unstyled d-flex">
                         <li class="nav-item"><a href="${pageContext.request.contextPath}/" class="nav-link px-2 text-body-secondary">Home</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/shop" class="nav-link px-2 text-body-secondary">Shop</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/shop.jsp" class="nav-link px-2 text-body-secondary">Shop</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Gallery</a></li>
                 </ul>
 
