@@ -13,8 +13,4 @@ public class Encryption {
         this.hashedPassword = SCryptUtil.scrypt(password, 8192, 16, 1);
         return this.hashedPassword;
     }
-
-    public boolean passwordMatched(String plainPassword) {
-        return SCryptUtil.check(plainPassword, hashedPassword);
-    }
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import ph.pup.itech.dbtkmgr.dao.UserAddClass;
 import ph.pup.itech.dbtkmgr.dao.UserSearchClass;
 import ph.pup.itech.dbtkmgr.dao.UserUpdateClass;
+import ph.pup.itech.dbtkmgr.encryption.Encryption;
 import ph.pup.itech.dbtkmgr.model.UserModel;
 
 public class UserDataController extends HttpServlet{
@@ -135,9 +136,9 @@ public class UserDataController extends HttpServlet{
                 query = "viewusers=true&userId=";
         }
         HttpSession session = request.getSession();
-        String message = (String) session.getAttribute("message");
-        session.removeAttribute("message");
-        request.setAttribute("message", message);
+        String userDataMessage = (String) session.getAttribute("userDataMessage");
+        session.removeAttribute("userDataMessage");
+        request.setAttribute("userDataMessage", userDataMessage);
         request.setAttribute("actionTag", actionTag);
         request.setAttribute("path", path);
         request.setAttribute("query", query);
@@ -155,11 +156,12 @@ public class UserDataController extends HttpServlet{
             throws ServletException, IOException, ClassNotFoundException {
 
         HttpSession session = request.getSession();
-        String message = "";
+        Encryption pass = new Encryption();
+        String userDataMessage = "";
         if (request.getParameter("addUser") != null){
             String userId = request.getParameter("userId");
             if(!userId.isBlank()){
-                String password = request.getParameter("password");
+                String password = pass.encrypt(request.getParameter("password"));
                 //password = !password.isBlank() ? password : "defaultPassword";
                 String firstName = request.getParameter("firstName");
                 String middleName = request.getParameter("middleName");
@@ -180,18 +182,6 @@ public class UserDataController extends HttpServlet{
                 loginStatus = !loginStatus.isBlank() ? loginStatus : "Offline";
                 String userType = request.getParameter("userType");
 
-                request.setAttribute("userId", userId);
-                request.setAttribute("password", password);
-                request.setAttribute("firstName", firstName);
-                request.setAttribute("middleName", middleName);
-                request.setAttribute("lastName", lastName);
-                request.setAttribute("completeAddress", completeAddress);
-                request.setAttribute("birthday", birthday);
-                request.setAttribute("mobileNumber", mobileNumber);
-                request.setAttribute("accountStatus", accountStatus);
-                request.setAttribute("loginStatus", loginStatus);
-                request.setAttribute("userType", userType);
-
                 UserAddClass add = new UserAddClass();
                 boolean successfullyAdded = add.addUser(
                     userId,
@@ -207,18 +197,18 @@ public class UserDataController extends HttpServlet{
                     userType
                 );
                 if (successfullyAdded) {
-                    message = "User Added: " + userId;
+                    userDataMessage = "User Added: " + userId;
                 } else {
-                    message = "Database Query Error!";
+                    userDataMessage = "Database Query Error!";
                 }
             }
             else{
-                    message = "Maloid";
+                userDataMessage = "User ID cannot be empty!";
             }
         }else{
-            message = "User ID cannot be empty!";
+            userDataMessage = "NULL TYPA SHII";
         }
-        session.setAttribute("message", message);
+        session.setAttribute("userDataMessage", userDataMessage);
         response.sendRedirect(request.getContextPath() + "/users_data");
     }
 
@@ -246,8 +236,10 @@ public class UserDataController extends HttpServlet{
     private void editUser(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException {
 
+
+        Encryption pass = new Encryption();
         HttpSession session = request.getSession();
-        String message = "";
+        String userDataMessage = "";
         if (request.getParameter("editUser") != null) {
             String userId = request.getParameter("userId");
             String password = request.getParameter("password");
@@ -270,14 +262,21 @@ public class UserDataController extends HttpServlet{
             userType = (userType != null && !userType.isBlank()) ? userType : "user";
 
             UserUpdateClass update = new UserUpdateClass();
-            boolean successfullyUpdated = update.editUserDetails(userId, password, firstName, middleName, lastName, completeAddress, birthday, mobileNumber, accountStatus, loginStatus, userType);
+            boolean successfullyUpdated;
+            if(password != null && !password.isBlank()){
+                password = pass.encrypt(password);
+                successfullyUpdated = update.editUserDetails(userId, password, firstName, middleName, lastName, completeAddress, birthday, mobileNumber, accountStatus, loginStatus, userType);
+            }
+            else{
+                successfullyUpdated = update.editUserDetails(userId, firstName, middleName, lastName, completeAddress, birthday, mobileNumber, accountStatus, loginStatus, userType);
+            }
             if (successfullyUpdated) {
-                message = "User Updated: " + userId;
+                userDataMessage = "User Updated: " + userId;
             } else {
-                message = "Database Query Error!";
+                userDataMessage = "Database Query Error!";
             }
         }
-        session.setAttribute("message", message);
+        session.setAttribute("userDataMessage", userDataMessage);
         response.sendRedirect(request.getContextPath() + "/users_data");
     }
 
@@ -285,15 +284,15 @@ public class UserDataController extends HttpServlet{
             throws ServletException, IOException, ClassNotFoundException {
 
         HttpSession session = request.getSession();
-        String message = "";
+        String userDataMessage = "";
         if (request.getParameter("deleteuser") != null) {
             String userId = request.getParameter("userId");
             UserUpdateClass update = new UserUpdateClass();
             update.deleteUser(userId);
-            message = "User Deleted Successfully!";
-            request.setAttribute("message", message);
+            userDataMessage = "User Deleted Successfully!";
+            request.setAttribute("userDataMessage", userDataMessage);
         }
-        session.setAttribute("message", message);
+        session.setAttribute("userDataMessage", userDataMessage);
         response.sendRedirect(request.getContextPath() + "/users_data");
     }
 

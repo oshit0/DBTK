@@ -127,167 +127,162 @@ public class InventoryController extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException {
         InventorySearchClass search = new InventorySearchClass();
         ArrayList<InventoryModel> allItems = search.getAllItems();
-        request.setAttribute("allItems", allItems);
-        String actionTag = "", path = "", query = "";
-        switch (action) {
-            case 0:
-                actionTag = "Edit";
-                path = "inventory/edit/form";
-                query = "editproduct=true&id=";
-                break;
-            case 1:
-                actionTag = "Delete";
-                path = "inventory/removed";
-                query = "deleteproduct=true&id=";
-                break;
-            default:
-                actionTag = "Edit";
-                path = "inventory/edit/form";
-                query = "viewinventory=true&id=";
-        }
-        HttpSession session = request.getSession();
-        String message = (String) session.getAttribute("message");
-        session.removeAttribute("message");
-        request.setAttribute("message", message);
-        request.setAttribute("actionTag", actionTag);
-        request.setAttribute("path", path);
-        request.setAttribute("query", query);
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/inventory.jsp");
-        rd.forward(request, response);
-    }
-
-    private void createFormProduct(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/product-create.jsp");
-        rd.forward(request, response);
-
-    }
-
-    private void createProduct(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-
-        HttpSession session = request.getSession();
-        String message = "";
-        if (request.getParameter("addItem") != null){
-            String itemName = request.getParameter("itemName");
-            if(!itemName.isBlank()){
-                String itemDescription = request.getParameter("itemDescription");
-                itemDescription = !itemDescription.isBlank() ? itemDescription : "No Description";
-                String itemSize = request.getParameter("itemSize");
-                itemSize = !itemSize.isBlank() ? itemSize : "N/A";
-                int itemPrice, itemStocks;
-                try {
-                    itemPrice = Integer.parseInt(request.getParameter("itemPrice"));
-                    itemStocks = Integer.parseInt(request.getParameter("itemStocks"));
-                } catch (NumberFormatException e) {
-                    itemPrice = 0;
-                    itemStocks = 0;
-                    System.out.println("NumberFormatException: " + e);
-                }
-                request.setAttribute("itemName", itemName);
-                request.setAttribute("itemDesc", itemDescription);
-                request.setAttribute("itemSize", itemSize);
-                request.setAttribute("itemPrice", itemPrice);
-                request.setAttribute("itemStocks", itemStocks);
-
-                InventoryAddClass add = new InventoryAddClass();
-                boolean successfullyAdded = add.addInventory(itemName, itemDescription, itemSize, itemPrice, itemStocks);
-                if (successfullyAdded) {
-                    message = "Item Added: " + itemName;
-                } else {
-                    message = "Database Query Error!";
-                }
-            }
-            else{
-                    message = "Item name must not be empty!";
-            }
-        }
-        session.setAttribute("message", message);
-        response.sendRedirect(request.getContextPath() + "/inventory");
-    }
-
-    private void editFormProduct(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-
-        String rdPage = "";
-
-        if (request.getParameter("editproduct") != null) {
-            String id = request.getParameter("id");
-            InventoryUpdateClass edit = new InventoryUpdateClass();
-            ArrayList<InventoryModel> itemDetails = edit.getItemDetails(id);
-            request.setAttribute("itemDetails", itemDetails);
-            rdPage = "/WEB-INF/product-update.jsp";
-        } else {
-            InventorySearchClass search = new InventorySearchClass();
-            ArrayList<InventoryModel> allItems = search.getAllItems();
             request.setAttribute("allItems", allItems);
-            viewInventory(request, response, 0);
+            String actionTag = "", path = "", query = "";
+            switch (action) {
+                case 0:
+                    actionTag = "Edit";
+                    path = "inventory/edit/form";
+                    query = "editproduct=true&id=";
+                    break;
+                case 1:
+                    actionTag = "Delete";
+                    path = "inventory/removed";
+                    query = "deleteproduct=true&id=";
+                    break;
+                default:
+                    actionTag = "Edit";
+                    path = "inventory/edit/form";
+                    query = "viewinventory=true&id=";
+            }
+            HttpSession session = request.getSession();
+            String inventoryMessage = (String) session.getAttribute("inventoryMessage");
+            session.removeAttribute("inventoryMessage");
+            request.setAttribute("inventoryMessage", inventoryMessage);
+            request.setAttribute("actionTag", actionTag);
+            request.setAttribute("path", path);
+            request.setAttribute("query", query);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/inventory.jsp");
+            rd.forward(request, response);
         }
-        RequestDispatcher rd = getServletContext().getRequestDispatcher(rdPage);
-        rd.forward(request, response);
-    }
 
-    private void editProduct(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+        private void createFormProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException {
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/product-create.jsp");
+            rd.forward(request, response);
 
-        HttpSession session = request.getSession();
-        String message = "";
-        if (request.getParameter("editItem") != null) {
-            String id = request.getParameter("id");
-            String itemName = request.getParameter("itemName");
-            if(!itemName.isBlank()){
-                String itemDesc = request.getParameter("itemDescription");
-                itemDesc= !itemDesc.isBlank() ? itemDesc: "No Description";
-                String itemSize = request.getParameter("itemSize");
-                itemSize = !itemSize.isBlank() ? itemSize : "N/A";
-                int itemPrice, itemStocks;
-                try {
-                    itemPrice = Integer.parseInt(request.getParameter("itemPrice"));
-                    itemStocks = Integer.parseInt(request.getParameter("itemStocks"));
-                } catch (NumberFormatException e) {
-                    System.out.println("NumberFormatException: " + e);
-                    return;
+        }
+
+        private void createProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException, ClassNotFoundException {
+
+            HttpSession session = request.getSession();
+            String inventoryMessage = "";
+            if (request.getParameter("addItem") != null){
+                String itemName = request.getParameter("itemName");
+                if(!itemName.isBlank()){
+                    String itemDescription = request.getParameter("itemDescription");
+                    itemDescription = !itemDescription.isBlank() ? itemDescription : "No Description";
+                    String itemSize = request.getParameter("itemSize");
+                    itemSize = !itemSize.isBlank() ? itemSize : "N/A";
+                    int itemPrice, itemStocks;
+                    try {
+                        itemPrice = Integer.parseInt(request.getParameter("itemPrice"));
+                        itemStocks = Integer.parseInt(request.getParameter("itemStocks"));
+                    } catch (NumberFormatException e) {
+                        itemPrice = 0;
+                        itemStocks = 0;
+                        System.out.println("NumberFormatException: " + e);
+                    }
+
+                    InventoryAddClass add = new InventoryAddClass();
+                    boolean successfullyAdded = add.addInventory(itemName, itemDescription, itemSize, itemPrice, itemStocks);
+                    if (successfullyAdded) {
+                        inventoryMessage = "Item Added: " + itemName;
+                    } else {
+                        inventoryMessage = "Database Query Error!";
+                    }
                 }
+                else{
+                        inventoryMessage = "Item name must not be empty!";
+                }
+            }
+            session.setAttribute("inventoryMessage", inventoryMessage);
+            response.sendRedirect(request.getContextPath() + "/inventory");
+        }
+
+        private void editFormProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException, ClassNotFoundException {
+
+            String rdPage = "";
+
+            if (request.getParameter("editproduct") != null) {
+                String id = request.getParameter("id");
+                InventoryUpdateClass edit = new InventoryUpdateClass();
+                ArrayList<InventoryModel> itemDetails = edit.getItemDetails(id);
+                request.setAttribute("itemDetails", itemDetails);
+                rdPage = "/WEB-INF/product-update.jsp";
+            } else {
+                InventorySearchClass search = new InventorySearchClass();
+                ArrayList<InventoryModel> allItems = search.getAllItems();
+                request.setAttribute("allItems", allItems);
+                viewInventory(request, response, 0);
+            }
+            RequestDispatcher rd = getServletContext().getRequestDispatcher(rdPage);
+            rd.forward(request, response);
+        }
+
+        private void editProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException, ClassNotFoundException {
+
+            HttpSession session = request.getSession();
+            String inventoryMessage = "";
+            if (request.getParameter("editItem") != null) {
+                String id = request.getParameter("id");
+                String itemName = request.getParameter("itemName");
+                if(!itemName.isBlank()){
+                    String itemDesc = request.getParameter("itemDescription");
+                    itemDesc= !itemDesc.isBlank() ? itemDesc: "No Description";
+                    String itemSize = request.getParameter("itemSize");
+                    itemSize = !itemSize.isBlank() ? itemSize : "N/A";
+                    int itemPrice, itemStocks;
+                    try {
+                        itemPrice = Integer.parseInt(request.getParameter("itemPrice"));
+                        itemStocks = Integer.parseInt(request.getParameter("itemStocks"));
+                    } catch (NumberFormatException e) {
+                        System.out.println("NumberFormatException: " + e);
+                        return;
+                    }
+                    InventoryUpdateClass update = new InventoryUpdateClass();
+                    boolean succesfullyUpdated = update.editItemDetails(id, itemName, itemDesc, itemSize, itemPrice, itemStocks);
+                    if (succesfullyUpdated) {
+                        inventoryMessage = "Item Updated: " + itemName;
+                    } else {
+                        inventoryMessage = "Database Query Error!";
+                    }
+                }
+                else{
+                    inventoryMessage = "Item name must not be empty!";
+                }
+            }
+            session.setAttribute("inventoryMessage", inventoryMessage);
+            response.sendRedirect(request.getContextPath() + "/inventory");
+        }
+
+        private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
+                throws ServletException, IOException, ClassNotFoundException {
+
+            HttpSession session = request.getSession();
+            String inventoryMessage = "";
+            if (request.getParameter("deleteproduct") != null) {
+                String id = request.getParameter("id");
                 InventoryUpdateClass update = new InventoryUpdateClass();
-                boolean succesfullyUpdated = update.editItemDetails(id, itemName, itemDesc, itemSize, itemPrice, itemStocks);
-                if (succesfullyUpdated) {
-                    message = "Item Updated: " + itemName;
-                } else {
-                    message = "Database Query Error!";
-                }
+                update.deleteItem(id);
+                inventoryMessage = "Item Deleted Successfully!";
+                request.setAttribute("inventoryMesssage", inventoryMessage);
             }
-            else{
-                message = "Item name must not be empty!";
-            }
+            session.setAttribute("inventoryMessage", inventoryMessage);
+            response.sendRedirect(request.getContextPath() + "/inventory");
         }
-        session.setAttribute("message", message);
-        response.sendRedirect(request.getContextPath() + "/inventory");
-    }
 
-    private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-
-        HttpSession session = request.getSession();
-        String message = "";
-        if (request.getParameter("deleteproduct") != null) {
-            String id = request.getParameter("id");
-            InventoryUpdateClass update = new InventoryUpdateClass();
-            update.deleteItem(id);
-            message = "Item Deleted Successfully!";
-            request.setAttribute("message", message);
-        }
-        session.setAttribute("message", message);
-        response.sendRedirect(request.getContextPath() + "/inventory");
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo() {
+            return "Short description";
+        }// </editor-fold>
 
 }

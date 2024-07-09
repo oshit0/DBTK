@@ -74,6 +74,7 @@ public class UnprotectedPages extends HttpServlet {
         rd.forward(request, response);
     }
 
+
     /**
      * Returns a short description of the servlet.
      *
