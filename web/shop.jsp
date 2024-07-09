@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : index
     Created on : 1 Apr 2024, 7:53:21 pm
     Author     : Mark
@@ -32,11 +32,11 @@
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
                 <link rel="preconnect" href="https://rsms.me/">
                 <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-        </head>   
+        </head>
         <body>
                 <%@include file="navbar.jsp" %>
                 <%@include file="cart.jsp" %>
-                <%@include file="login.jsp" %>
+                <%@include file="login-modal.jsp" %>
 
 
                 <!--cta-->
@@ -62,7 +62,7 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>    
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/bottom1.jpg">
@@ -71,7 +71,7 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/shirt3.jpg">
@@ -80,7 +80,7 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/accessories5.png">
@@ -89,7 +89,7 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/shirt5.jpg">
@@ -98,7 +98,7 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/accessories4.png">
@@ -107,13 +107,13 @@
                                         <div class="sale">
                                                 <h4>Sale</h4>
                                         </div>
-                                </div>           
+                                </div>
                         </div>
 
 
                 </section>
 
-                <!-- shirt -->  
+                <!-- shirt -->
                 <section class="shirt">
                         <div class="shirt-text">
                                 <h1>T-shirt</h1>
@@ -127,47 +127,47 @@
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt1.jpg">
                                                 <h5>AUTO SALON TEE - BLACK</h5>
-                                                <h6>₱950.00</h6>           
-                                        </div>    
+                                                <h6>₱950.00</h6>
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt2.jpg">
                                                 <h5>AUTO SALON TEE - WHITE</h5>
                                                 <h6>₱950.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt3.jpg">
                                                 <h5>SPARK INTERFACE TEE - BLACK</h5>
                                                 <h6>₱900.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt4.jpg">
                                                 <h5>TUNERS TEE - DARK GRAY</h5>
                                                 <h6>₱950.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt5.jpg">
                                                 <h5>NIGHT RUN L/S TEE - BLACK</h5>
                                                 <h6>₱1,100</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/shirt6.jpg">
                                                 <h5>HEART PATCH TEE - NAVY BLUE</h5>
                                                 <h6>₱900.00</h6>
 
-                                        </div>           
+                                        </div>
                                 </div>
                 </section>
 
-                <!-- new-accessories -->  
+                <!-- new-accessories -->
                 <section class="accessories">
                         <div class="accessories-text">
                                 <h1>Accessories</h1>
@@ -182,49 +182,49 @@
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories1.png">
                                                 <h5>DBTK “Cipher” Webbing key-strap</h5>
-                                                <h6>₱650.00</h6>           
-                                        </div>    
+                                                <h6>₱650.00</h6>
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories2.png">
                                                 <h5>DBTK CIPHER KEYCHAIN</h5>
                                                 <h6>₱150.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories3.png">
                                                 <h5>DBTK SPARK KEYCHAIN</h5>
                                                 <h6>₱1500.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories4.png">
                                                 <h5>DBTK CROSSBODY BAG - BLACK</h5>
                                                 <h6>₱1,125</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories5.png">
                                                 <h5>TSUNO BAG - CREAM</h5>
                                                 <h6>₱1,500</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/accessories6.png">
                                                 <h5>KIDDO V2 ENAMEL PIN</h5>
                                                 <h6>₱300.00</h6>
 
-                                        </div>           
+                                        </div>
                                 </div>
 
 
                 </section>
 
-                <!-- bottoms -->  
+                <!-- bottoms -->
                 <section class="bottoms">
                         <div class="bottoms-text">
                                 <h1>Bottoms</h1>
@@ -238,22 +238,22 @@
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/bottom1.jpg">
                                                 <h5>GAKURAN DRAWSTRING PANTS</h5>
-                                                <h6>₱1,800</h6>           
-                                        </div>    
+                                                <h6>₱1,800</h6>
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/bottom2.jpg">
                                                 <h5>OG LOGO MINI SWEATPANTS - LIGHT BLUE</h5>
                                                 <h6>₱750.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                 </div>
 
 
                 </section>
 
-                <!-- wear -->  
+                <!-- wear -->
                 <section class="footwear">
                         <div class="footwear-text">
                                 <h1>Footwear</h1>
@@ -267,29 +267,29 @@
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/footwear1.png">
                                                 <h5>DBTK Cipher 002 Slides - GRAY</h5>
-                                                <h6>₱900.00</h6>           
-                                        </div>    
+                                                <h6>₱900.00</h6>
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/footwear2.png">
                                                 <h5>DBTK Cipher 002 Slides - BLUE</h5>
                                                 <h6>₱900.00</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/footwear3.png">
                                                 <h5>“SKY WALKER” SPARK</h5>
                                                 <h6>₱5,495</h6>
 
-                                        </div>           
+                                        </div>
 
                                 </div>
 
 
                 </section>
 
-                <!-- head -->  
+                <!-- head -->
                 <section class="headwear">
                         <div class="headwear-text">
                                 <h1>Headwear</h1>
@@ -303,43 +303,43 @@
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/headwear1.png">
                                                 <h5>DBTK ITALIC DAD HAT - TAUPE/WHITE</h5>
-                                                <h6>₱1,000</h6>           
-                                        </div>    
+                                                <h6>₱1,000</h6>
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/headwear2.png">
                                                 <h5>DBTK ITALIC DAD HAT - OLIVE GREEN/WHITE</h5>
                                                 <h6>₱1,000</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/headwear3.png">
                                                 <h5>DBTK ITALIC DAD HAT - SAGE GREEN/WHITE</h5>
                                                 <h6>₱1,000</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/headwear4.png">
                                                 <h5>DBTK ITALIC DAD HAT - BLACK/WHITE</h5>
                                                 <h6>₱1,000</h6>
 
-                                        </div>           
+                                        </div>
 
                                         <div class="box">
                                                 <img src="${pageContext.request.contextPath}/img/shop/headwear5.png">
                                                 <h5>PICKUP CREW CAP (OAT/GREEN)</h5>
                                                 <h6>₱1,000</h6>
 
-                                        </div>           
+                                        </div>
 
 
                                 </div>
 
 
                 </section>
-                <!-- stickers -->  
+                <!-- stickers -->
                 <section class="stickers">
                         <div class="stickers-text">
                                 <h1>Stickers</h1>
@@ -352,38 +352,38 @@
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker1.png">
                                         <h5>DBTK MADE WITH LOVE STICKER PACK</h5>
-                                        <h6>₱300.00</h6>           
-                                </div>    
+                                        <h6>₱300.00</h6>
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker2.png">
                                         <h5>Sneaky Kid Logo</h5>
                                         <h6>₱150.00</h6>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker3.png">
                                         <h5>DBTK HOLOGRAPHIC STICKER PACK</h5>
                                         <h6>₱300.00</h6>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker4.png">
                                         <h5>DBTKJPN “IKIGAI” STICKER PACK</h5>
                                         <h6>₱300.00</h6>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker5.png">
                                         <h5>DBTK AUTO SALON STICKER PACK</h5>
                                         <h6>₱250.00</h6>
-                                </div>           
+                                </div>
 
                                 <div class="box">
                                         <img src="${pageContext.request.contextPath}/img/shop/sticker6.png">
                                         <h5>CIPHER HOLOGRAPHIC DECAL</h5>
                                         <h6>₱200.00</h6>
-                                </div>           
+                                </div>
                         </div>
                 </section>
 
