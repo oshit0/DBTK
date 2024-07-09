@@ -1,89 +1,95 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- 
- */
-const form = document.getElementById('form');
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("signupForm");
+    const username = document.getElementById("username");
+    const password = document.getElementById("newPassword");
+    const confirm = document.getElementById("confirm");
+    const fname = document.getElementById("fname");
+    const lname = document.getElementById("lname");
+    const address = document.getElementById("address");
+    const bday = document.getElementById("bday");
+    const mobile = document.getElementById("mobile");
 
-const fields = {
-  username: {
-    element: document.getElementById('username'),
-    errorElement: document.getElementById('username_error'),
-    check: /^[a-zA-Z0-9]{4,12}$/,
-    errorMessage: "Username must be between 4 and 12 characters, and no special characters."
-  },
-  password: {
-    element: document.getElementById('password'),
-    errorElement: document.getElementById('password_error'),
-    check: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$&*])[A-Za-z\d!@#$&*]{8,16}$/,
-    errorMessage: "Password must contain 8-16 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character. (!@#$&*)"
-  },
-  confirm: {
-    element: document.getElementById('confirm'),
-    errorElement: document.getElementById('confirm_error'),
-    errorMessage: "Passwords don't match."
-  },
-  fname: {
-    element: document.getElementById('fname'),
-    errorElement: document.getElementById('fname_error'),
-    check: /^[a-zA-Z]+$/,
-    errorMessage: "First name is required."
-  },
-  mname: {
-    element: document.getElementById('mname'),
-    errorElement: document.getElementById('mname_error'),
-    //check: /^[a-zA-Z]+$/,
-    errorMessage: "Middle name should contain only letters."
-  },
-  lname: {
-    element: document.getElementById('lname'),
-    errorElement: document.getElementById('lname_error'),
-    check: /^[a-zA-Z]+$/,
-    errorMessage: "Last name is required and must contain at least 2 characters."
-  },
-  address: {
-    element: document.getElementById('address'),
-    errorElement: document.getElementById('address_error'),
-    check: /^(?=.*\S)[a-zA-Z0-9\s,.'-]+$/,
-    errorMessage: "Address must contain only alphanumeric characters."
-  },
-  bday: {
-    element: document.getElementById('bday'),
-    errorElement: document.getElementById('bday_error'),
-    check: /^\d{4}-\d{2}-\d{2}$/,
-    errorMessage: "Birthday can't be blank."
-  },
-  mobile: {
-    element: document.getElementById('mobile'),
-    errorElement: document.getElementById('mobile_error'),
-    check: /^\d{11}$/,
-    errorMessage: "Mobile number is required and must be numeric with exactly 11 digits."
-  }
-};
+    form.addEventListener("submit", function(event) {
+        let valid = true;
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let isValid = true;
+        // Reset previous error messages
+        document.getElementById("username_error").textContent = "";
+        document.getElementById("password_error").textContent = "";
+        document.getElementById("confirm_error").textContent = "";
+        document.getElementById("fname_error").textContent = "";
+        document.getElementById("lname_error").textContent = "";
+        document.getElementById("address_error").textContent = "";
+        document.getElementById("bday_error").textContent = "";
+        document.getElementById("mobile_error").textContent = "";
 
-  for (const fieldName in fields) {
-    const field = fields[fieldName];
-    const value = field.element.value.trim();
+        // Validate username
+        if (username.value.trim() === "") {
+            document.getElementById("username_error").textContent = "Username cannot be empty";
+            valid = false;
+        }
 
-    if (field.check && !value.match(field.check)) {
-      field.errorElement.textContent = field.errorMessage;
-      isValid = false;
-    } else {
-      field.errorElement.textContent = "";
+        // Validate password
+        if (!isValidPassword(password.value.trim())) {
+            document.getElementById("password_error").textContent = "Password must be 8 to 16 characters long and include at least one lowercase letter, one uppercase letter, and one digit";
+            valid = false;
+        }
+
+        // Validate password confirmation
+        if (password.value.trim() !== confirm.value.trim()) {
+            document.getElementById("confirm_error").textContent = "Passwords do not match";
+            valid = false;
+        }
+
+        // Validate first name
+        if (fname.value.trim() === "") {
+            document.getElementById("fname_error").textContent = "First name is required";
+            valid = false;
+        }
+
+        // Validate last name
+        if (!isValidName(lname.value.trim())) {
+            document.getElementById("lname_error").textContent = "Last name is required and must contain at least 2 characters";
+            valid = false;
+        }
+
+        // Validate address
+        if (address.value.trim() === "") {
+            document.getElementById("address_error").textContent = "Address cannot be empty";
+            valid = false;
+        }
+
+        // Validate birthday
+        if (bday.value.trim() === "") {
+            document.getElementById("bday_error").textContent = "Birthday cannot be blank";
+            valid = false;
+        }
+
+        // Validate mobile number
+        if (!isValidMobile(mobile.value.trim())) {
+            document.getElementById("mobile_error").textContent = "Mobile number is required and must be numeric with exactly 11 digits";
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault(); // Prevent form submission if validation fails
+        }
+    });
+
+    // Function to validate password criteria
+    function isValidPassword(pw) {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        return regex.test(pw);
     }
 
-    if (fieldName === 'confirm' && value !== fields.password.element.value.trim()) {
-      field.errorElement.textContent = field.errorMessage;
-      isValid = false;
+    // Function to validate last name
+    function isValidName(name) {
+        const regex = /^[a-zA-Z]{2,}$/;
+        return regex.test(name);
     }
-  }
 
-  if (isValid) {
-    form.submit();
-    alert("Registration Success!");
-  }
+    // Function to validate mobile number
+    function isValidMobile(number) {
+        const regex = /^\d{11}$/;
+        return regex.test(number);
+    }
 });

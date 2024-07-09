@@ -82,6 +82,14 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
+        <url-pattern>/signup/form</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -103,10 +111,6 @@
     <servlet-mapping>
         <servlet-name>UnprotectedPages</servlet-name>
         <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UnprotectedPages</servlet-name>
-        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UnprotectedPages</servlet-name>

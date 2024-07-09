@@ -1,0 +1,116 @@
+/*
+click nbfs://nbhost/systemfilesystem/templates/licenses/license-default.txt to change this license
+click nbfs://nbhost/systemfilesystem/templates/jsp_servlet/cascadestylesheet.css to edit this template
+*/
+/*
+    created on : 26 apr 2024, 5:53:00 pm
+    author     : mark
+*/
+
+:root {
+  font-family: inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: intervariable, sans-serif;
+
+  }
+}
+
+body {
+  font-family: 'inter';
+  padding-top: 120px; /* adjusted padding for better alignment */
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* default styles */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-img {
+  background-image: url('../img/login/stretch.jpg');
+  background-size: cover;
+  background-position: 25%;
+  width: 100%;
+}
+
+h1 {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.login-form form label {
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.login-form form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid gray;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-form .btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-form span {
+  color: red;
+  font-size: 15px;
+}
+
+/* media query for pc */
+@media only screen and (min-width: 768px) {
+  .login-form {
+    padding: 25px;
+    max-width: 600px;
+    border: 1px solid #e0e0e0;
+    border-left: 1px;
+  }
+
+  .login-img{
+    max-width: 400px;
+  }
+
+  .login-form form input {
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 0px;
+    border-bottom: 1px solid gray;
+  }
+
+  .login-form .btn {
+    height: 45px; /* increased height for a thicker button */
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .login-form {
+    border: none; /* hide border */
+  }
+
+  .login-img {
+    display: none; /* hide signup-img div */
+  }
+}
